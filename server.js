@@ -1,5 +1,8 @@
 const express = require("express");
 const app = express();
+app.listen(3000, function () {
+  console.log("Express App is listening for http requests on port: 3000");
+});
 
 app.get("/greetings/:name", function (req, res) {
   res.send(`Hello there, ${req.params.name}`);
@@ -64,8 +67,4 @@ app.get("/shoes", function (req, res) {
   }
 
   res.json(filteredShoes);
-});
-
-app.listen(3000, function () {
-  console.log("Express App is listening for http requests on port: 3000");
 });
