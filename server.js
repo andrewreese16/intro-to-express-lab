@@ -5,8 +5,8 @@ app.get("/greetings/:name", function (req, res) {
   res.send(`Hello there, ${req.params.name}`);
 });
 
-app.get("/roll/:number-parameter", function (req, res) {
-  const number = parseInt(req.params["number-parameter"]);
+app.get("/roll/:number", function (req, res) {
+  const number = parseInt(req.params["number"]);
 
   if (isNaN(number) || number < 0) {
     res.send("Please provide a valid number.");
@@ -17,13 +17,13 @@ app.get("/roll/:number-parameter", function (req, res) {
   }
 });
 
-app.get("/collectibles/:index-parameter", function (req, res) {
+app.get("/collectibles/:index", function (req, res) {
   const collectibles = [
     { name: "shiny ball", price: 5.95 },
     { name: "autographed picture of a dog", price: 10 },
     { name: "vintage 1970s yogurt SOLD AS-IS", price: 0.99 },
   ];
-  const index = parseInt(req.params["index-parameter"]);
+  const index = parseInt(req.params["index"]);
   if (isNaN(index) || index < 0 || index >= collectibles.length) {
     res.send("This item is not yet in stock. Check back soon!");
   } else {
