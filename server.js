@@ -3,11 +3,12 @@ const app = express();
 app.listen(3000, function () {
   console.log("Express App is listening for http requests on port: 3000");
 });
-
+// Route 1
 app.get("/greetings/:name", function (req, res) {
   res.send(`Hello there, ${req.params.name}`);
 });
 
+// Route 2
 app.get("/roll/:number", function (req, res) {
   const number = parseInt(req.params["number"]);
 
@@ -17,9 +18,12 @@ app.get("/roll/:number", function (req, res) {
     const randomNumber = Math.floor(Math.random() * (number + 1));
 
     res.send(`You rolled a ${randomNumber}.`);
+
   }
 });
 
+
+// Route 3
 app.get("/collectibles/:index", function (req, res) {
   const collectibles = [
     { name: "shiny ball", price: 5.95 },
@@ -37,6 +41,8 @@ app.get("/collectibles/:index", function (req, res) {
   }
 });
 
+
+// Route 4
 app.get("/shoes", function (req, res) {
   const shoes = [
     { name: "Birkenstocks", price: 50, type: "sandal" },
